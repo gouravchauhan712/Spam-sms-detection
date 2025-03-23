@@ -13,6 +13,8 @@ ps = PorterStemmer()
 
 
 def transform_text(text):
+    nltk.download('punkt')
+    nltk.download('stopwords')
     text = text.lower()
     text = nltk.word_tokenize(text)
 
