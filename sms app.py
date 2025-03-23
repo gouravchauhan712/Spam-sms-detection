@@ -1,8 +1,6 @@
 import nltk
-
-# Download necessary datasets if not present
-nltk.download('stopwords')
-nltk.download('punkt')
+nltk.download('punkt')  # Download the tokenizer
+nltk.download('stopwords')  # Ensure stopwords are also downloaded
 
 import streamlit as st
 import pickle
