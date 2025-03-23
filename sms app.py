@@ -1,12 +1,21 @@
 import nltk
-nltk.download('punkt')  # Download tokenizer
-nltk.download('stopwords')  # Download stopwords
-
+import os
 import streamlit as st
 import pickle
 import string
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+
+# Manually set the NLTK data directory
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
+
+nltk.data.path.append(nltk_data_path)
+
+# Force download necessary resources into the defined path
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('stopwords', download_dir=nltk_data_path)
 
 ps = PorterStemmer()
 
@@ -51,3 +60,4 @@ if st.button('Predict'):
     result = model.predict(vector_input)[0]
     # 4. Display Result
     st.header("Spam" if result == 1 else "Not Spam")
+
