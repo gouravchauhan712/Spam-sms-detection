@@ -1,3 +1,9 @@
+import nltk
+
+# Download necessary datasets if not present
+nltk.download('stopwords')
+nltk.download('punkt')
+
 import streamlit as st
 import pickle
 import string
